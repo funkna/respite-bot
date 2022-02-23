@@ -1,7 +1,7 @@
-#Bingo Roles
+# Bingo Roles
 BINGO_ADMIN='Bingo Admin'
 BINGO='Bingo'
 
-#Admin Roles
+# Admin Roles
 OWNER='Owner'
 MODERATOR='Moderator'

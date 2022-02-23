@@ -1,8 +1,11 @@
+# Python Packages
 import os
 import discord
 from dotenv import load_dotenv
+
+# Respite Packages
 from support.logging import *
-from respite import channels, commands, messages, roles
+from respite import channels, commands, messages
 
 
 client = discord.Client()
@@ -16,11 +19,13 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith(commands.SYNC_CHARACTER) and message.author.bot == False:
-        cmd = message.content[1:]
-        if cmd.startswith(commands.ECHO):
-            content = cmd[len(commands.ECHO):].strip()
-            print(content)
-            await message.channel.send(content)
+        Logger.log(f'[{message.author} ({message.author.nick})] in {message.channel}: {message.content}')
+
+        fields = message.content[1:].split(' ')
+        cmd = fields[0]
+
+        if cmd == commands.ECHO:
+            await message.channel.send(' '.join(fields[1:]))
 
 load_dotenv()
 client.run(os.getenv('DISCORD_TOKEN'))

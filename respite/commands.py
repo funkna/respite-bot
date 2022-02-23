@@ -1,14 +1,18 @@
-#Generic
+# Generic
 SYNC_CHARACTER='~'
-HIGH_SCORE='hs'
 HELP='help'
 DEV_HELP='dev-help'
 ECHO='echo'
 
-#Bingo User Commands
+# OSRS HiScore Commands
+HS_LVL='lvl'
+HS_KC='kc'
+HS_CLUES='clues'
+
+# Bingo User Commands
 BINGO_BOARD='board'
 
-#Bingo Admin Commands
+# Bingo Admin Commands
 BINGO_START='start'
 BINGO_ADD_PLAYER='add-p'
 BINGO_REM_PLAYER='rem-p'

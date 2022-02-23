@@ -22,7 +22,7 @@ class Logger:
         if log_level.value >= Logger.LogLevelEnum.FILE.value:
             try:
                 with open(Logger._log_filename, 'a') as log_file:
-                    log_file.write(str(f_msg.encode('utf-8')))
+                    log_file.write(str(f_msg.encode('utf-8').decode()))
                     log_file.write('\n')
             except:
-                print(f"Couldn't log: {f_msg} {str(f_msg.encode('utf-8'))}")
+                print(f"Couldn't log: {f_msg} {str(f_msg.encode('utf-8').decode())}")
