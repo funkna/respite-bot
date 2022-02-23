@@ -5,7 +5,7 @@ skill_columns=[
     'xp'
     ]
 
-skill_names = [
+skill_names=[
     'total',
     'attack',
     'defense',
@@ -33,12 +33,12 @@ skill_names = [
     ]
 
 
-activity_columns = [
+activity_columns=[
     'rank',
     'score'
     ]
 
-activity_names = [
+activity_names=[
     'league_points',
     'bounty hunter hunter',
     'bounty hunter rogue',
@@ -54,12 +54,12 @@ activity_names = [
 ]
 
 
-boss_columns = [
+boss_columns=[
     'rank',
-    'kill count'
+    'kc'
     ]
 
-boss_names = [
+boss_names=[
     'abyssal sire',
     'alchemical hydra',
     'barrows chests',
