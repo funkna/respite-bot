@@ -1,0 +1,10 @@
+# Ignore the environment file, containing the discord token.
+.env
+
+# Ignore the logging file.
+respite.log
+
+# Ignore all files in __pycache__ folders.
+*.pyc
+*/__pycache__/
+
