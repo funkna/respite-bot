@@ -3,7 +3,7 @@ skill_columns=[
     'rank',
     'level',
     'xp'
-    ]
+]
 
 skill_names=[
     'total',
@@ -30,34 +30,77 @@ skill_names=[
     'runecrafting',
     'hunter',
     'construction'
-    ]
+]
+
+skill_aliases={
+    'total': ['total'],
+    'attack': ['attack', 'att'],
+    'defence': ['defence', 'def'],
+    'strength': ['strength', 'str'],
+    'hitpoints': ['hitpoints', 'hp'],
+    'ranged': ['ranged', 'range'],
+    'prayer': ['prayer', 'pray'],
+    'magic': ['magic', 'mage'],
+    'cooking': ['cooking', 'cook'],
+    'woodcutting': ['woodcutting', 'wc'],
+    'fletching': ['fletching', 'fletch'],
+    'fishing': ['fishing', 'fish'],
+    'firemaking': ['firemaking', 'fm'],
+    'crafting': ['crafting', 'craft'],
+    'smithing': ['smithing', 'smith'],
+    'mining': ['mining', 'min'],
+    'herblore': ['herblore', 'herb'],
+    'agility': ['agility', 'agil'],
+    'thieving': ['thieving', 'thiev'],
+    'slayer': ['slayer', 'slay'],
+    'farming': ['farming', 'farm'],
+    'runecrafting': ['runecrafting', 'rc'],
+    'hunter': ['hunter', 'hunt'],
+    'construction': ['construction', 'con']
+}
+
 
 
 activity_columns=[
     'rank',
     'score'
-    ]
+]
 
 activity_names=[
-    'league_points',
+    'league points',
     'bounty hunter hunter',
     'bounty hunter rogue',
-    'clues all',
-    'clues beginner',
-    'clues easy',
-    'clues medium',
-    'clues hard',
-    'clues elite',
-    'clues master',
+    'all',
+    'beginner',
+    'easy',
+    'medium',
+    'hard',
+    'elite',
+    'master',
     'last man standing',
     'soul wars zeal'
 ]
+
+activity_aliases={
+    'league points': ['league points', 'lp', 'leagues'],
+    'bounty hunter hunter': ['bounty hunter hunter', 'bounty hunter', 'bh'],
+    'bounty hunter rogue': ['bounty hunter rogue', 'bhrogue'],
+    'clues all': ['clues all', 'clues'],
+    'clues beginner': ['clues beginner', 'beg'],
+    'clues easy': ['clues easy'],
+    'clues medium': ['clues medium', 'med'],
+    'clues hard': ['clues hard'],
+    'clues elite': ['clues elite'],
+    'clues master': ['clues master'],
+    'last man standing': ['last man standing', 'lms'],
+    'soul wars zeal': ['soul wars zeal', 'sw', 'zeal']
+}
 
 
 boss_columns=[
     'rank',
     'kc'
-    ]
+]
 
 boss_names=[
     'abyssal sire',
@@ -108,4 +151,55 @@ boss_names=[
     'wintertodt',
     'zalcano',
     'zulrah'
-    ]
+]
+
+boss_aliases={
+    'abyssal sire': ['abyssal sire', 'sire'],
+    'alchemical hydra': ['alchemical hydra', 'hydra'],
+    'barrows chests': ['barrows chests', 'barrows'],
+    'bryophyta': ['bryophyta', 'bryo'],
+    'callisto': ['callisto'],
+    'cerberus': ['cerberus', 'cerb'],
+    'chambers of xeric': ['chambers of xeric', 'cox'],
+    'chambers of xeric challenge mode': ['chambers of xeric challenge mode', 'cox cm'],
+    'chaos elemental': ['chaos elemental', 'chaos ele', 'ele'],
+    'chaos fanatic': ['chaos fanatic', 'chaos fan', 'fanatic'],
+    'commander zilyana': ['commander zilyana', 'zily', 'saradomin', 'sara'],
+    'corporeal beast': ['corporeal beast', 'corp'],
+    'crazy archaeologist': ['crazy archaeologist', 'crazy arch'],
+    'dagannoth prime': ['dagannoth prime', 'prime'],
+    'dagannoth rex': ['dagannoth rex', 'rex'],
+    'dagannoth supreme': ['dagannoth supreme', 'supreme'],
+    'deranged archaeologist': ['deranged archaeologist', 'deranged arch'],
+    'general graardor': ['general graardor', 'graardor', 'bandos'],
+    'giant mole': ['giant mole', 'mole'],
+    'grotesque guardians': ['grotesque guardians', 'gg'],
+    'hespori': ['hespori', 'hesp'],
+    'kalphite queen': ['kalphite queen', 'kq'],
+    'king black dragon': ['king black dragon', 'kbd'],
+    'kraken': ['kraken', 'cave kraken'],
+    'kreearra': ['kreearra', 'kree', 'armadyl', 'arma'],
+    'kril tsutsaroth': ['kril tsutsaroth', 'kril', 'zamorak', 'zammy'],
+    'mimic': ['mimic'],
+    'nex': ['nex', 'zaros'],
+    'nightmare': ['nightmare', 'nm'],
+    'phosanis nightmare': ['phosanis nightmare', 'pnm', 'phosanis'],
+    'obor': ['obor'],
+    'sarachnis': ['sarachnis', 'sarach'],
+    'scorpia': ['scorpia'],
+    'skotizo': ['skotizo', 'skot'],
+    'tempoross': ['tempoross', 'temp'],
+    'the gauntlet': ['the gauntlet', 'gauntlet', 'gaunt'],
+    'the corrupted gauntlet': ['the corrupted gauntlet', 'corrupted gauntlet', 'cg'],
+    'theatre of blood': ['theatre of blood', 'tob'],
+    'theatre of blood hard mode': ['theatre of blood hard mode', 'tob hm'],
+    'thermonuclear smoke devil': ['thermonuclear smoke devil', 'thermy'],
+    'tzkal zuk': ['tzkal zuk', 'zuk', 'inferno'],
+    'tztok jad': ['tztok jad', 'jad', 'fight caves'],
+    'venenatis': ['venenatis', 'vene'],
+    'vetion': ['vetion', 'vet'],
+    'vorkath': ['vorkath', 'vork'],
+    'wintertodt': ['wintertodt', 'wt'],
+    'zalcano': ['zalcano', 'zalc'],
+    'zulrah': ['zulrah', 'zul']
+}

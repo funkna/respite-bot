@@ -10,6 +10,13 @@ from osrs import hiscores, exceptions
 
 client = discord.Client()
 
+#AGENDA:
+#TODO: Add & Store RSN registration with a discord name (external).
+#TODO: Figure out how to make a periodic timer event.
+#TODO: Add storage for a user's HS data.
+#TODO: Add a pretty reporting message.
+#TODO: Support SOTW and BOTM.
+
 @client.event
 async def on_ready():
     Logger.log('The bot is now active.')
@@ -28,12 +35,13 @@ async def on_message(message):
             await message.channel.send(' '.join(fields[1:]))
 
         if cmd == commands.HS_LVL:
-            skill = fields[1].lower()
+            if len(fields) > 1:
+                skill = fields[1].lower()
+            else:
+                return
 
             rsn = None
-            if len(fields) >= 3:
-                rsn = fields[2]
-            elif message.author.nick is not None:
+            if message.author.nick is not None:
                 rsn = message.author.nick
             else:
                 rsn = message.author.name
@@ -42,7 +50,7 @@ async def on_message(message):
             try:
                 player_data = hiscores.get_hs_info(rsn)
                 skill_data = player_data['skills'].loc[skill]
-                ret_msg = f"{rsn}: Level {skill.capitalize()} {skill_data.loc['level']} Experience: {skill_data.loc['xp']} Rank: {skill_data.loc['rank']}"
+                ret_msg = f"{rsn}: Level {skill} {skill_data.loc['level']} Experience: {skill_data.loc['xp']} Rank: {skill_data.loc['rank']}"
                 await message.delete()
             except exceptions.BadRequestException:
                 ret_msg = f'Unable to complete request.'
@@ -54,7 +62,11 @@ async def on_message(message):
                 await message.channel.send(ret_msg)
 
         if cmd == commands.HS_KC:
-            boss = ' '.join(fields[1:]).lower()
+            if len(fields) > 1:
+                boss = ' '.join(fields[1:]).lower()
+            else:
+                return
+
             rsn = None
             if message.author.nick is not None:
                 rsn = message.author.nick
@@ -73,6 +85,33 @@ async def on_message(message):
                 ret_msg = f'Could not find RSN: {rsn}'
             except KeyError:
                 ret_msg = f'Could not find boss: {boss}'
+            finally:
+                await message.channel.send(ret_msg)
+
+        if cmd == commands.HS_CLUES:
+            if len(fields) > 1:
+                clue = ' '.join(fields[1:]).lower()
+            else:
+                return
+
+            rsn = None
+            if message.author.nick is not None:
+                rsn = message.author.nick
+            else:
+                rsn = message.author.name
+
+            ret_msg = f''
+            try:
+                player_data = hiscores.get_hs_info(rsn)
+                clue_data = player_data['activities'].loc[clue]
+                ret_msg = f"{rsn}: Clue scroll: ({clue}): {clue_data.loc['score']} Rank: {clue_data.loc['rank']}"
+                await message.delete()
+            except exceptions.BadRequestException:
+                ret_msg = f'Unable to complete request.'
+            except exceptions.BadRsnException:
+                ret_msg = f'Could not find RSN: {rsn}'
+            except KeyError:
+                ret_msg = f'Could not find clue: {clue}'
             finally:
                 await message.channel.send(ret_msg)
 
