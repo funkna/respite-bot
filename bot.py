@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 # Respite Packages
 from support.logging import *
 from respite import channels, commands, messages
-from osrs import hiscores, exceptions
+from osrs import hiscores, exceptions, rsn_register
 
 client = discord.Client()
 
 #AGENDA:
-#TODO: Add & Store RSN registration with a discord name (external).
+#TODO: Add smarter help messages.
 #TODO: Figure out how to make a periodic timer event.
 #TODO: Add storage for a user's HS data.
 #TODO: Add a pretty reporting message.
@@ -34,6 +34,16 @@ async def on_message(message):
         if cmd == commands.ECHO:
             await message.channel.send(' '.join(fields[1:]))
 
+        if cmd == commands.REG_RSN:
+            if len(fields) > 1:
+                rsn = ' '.join(fields[1:])
+            else:
+                return
+            if rsn_register.RsnReg.register(message.author, rsn):
+                await message.channel.send(f'RSN "{rsn}" is now registered to {message.author}')
+            else:
+                await message.channel.send(f'Could not register RSN "{rsn}" to {message.author}')
+
         if cmd == commands.HS_LVL:
             if len(fields) > 1:
                 skill = fields[1].lower()
@@ -41,7 +51,10 @@ async def on_message(message):
                 return
 
             rsn = None
-            if message.author.nick is not None:
+            lookup = rsn_register.RsnReg.lookup(message.author)
+            if lookup is not None:
+                rsn = lookup
+            elif message.author.nick is not None:
                 rsn = message.author.nick
             else:
                 rsn = message.author.name
@@ -68,7 +81,10 @@ async def on_message(message):
                 return
 
             rsn = None
-            if message.author.nick is not None:
+            lookup = rsn_register.RsnReg.lookup(message.author)
+            if lookup is not None:
+                rsn = lookup
+            elif message.author.nick is not None:
                 rsn = message.author.nick
             else:
                 rsn = message.author.name
@@ -95,7 +111,10 @@ async def on_message(message):
                 return
 
             rsn = None
-            if message.author.nick is not None:
+            lookup = rsn_register.RsnReg.lookup(message.author)
+            if lookup is not None:
+                rsn = lookup
+            elif message.author.nick is not None:
                 rsn = message.author.nick
             else:
                 rsn = message.author.name

@@ -4,6 +4,8 @@ HELP='help'
 DEV_HELP='dev-help'
 ECHO='echo'
 
+REG_RSN='reg'
+
 # OSRS HiScore Commands
 HS_LVL='lvl'
 HS_KC='kc'

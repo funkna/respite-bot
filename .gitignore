@@ -7,4 +7,4 @@ respite.log
 # Ignore all files in __pycache__ folders.
 *.pyc
 */__pycache__/
-
+*.json
